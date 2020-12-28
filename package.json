@@ -1,0 +1,20 @@
+{
+  "name": "movie-database",
+  "version": "1.0.0",
+  "description": "project-check-in-2-Hamza-Osman",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hamza Osman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "pug": "^3.0.0"
+  }
+}

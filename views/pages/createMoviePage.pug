@@ -1,0 +1,40 @@
+html
+    head 
+        title Create a Movie - MovieDB
+        link(href="/css/style.css" rel="stylesheet")
+        link(href="/css/createMoviePage.css" rel="stylesheet")
+
+    body
+        include ../partials/topnav
+
+        <form action="/movies" method="post">
+        <h3> Movie Title: <br>
+        <input type="text" name="Title" required><br>
+        <h3> Release Year: <br>
+        <input type="number" name="Year" required><br>
+        <h3> Plot Description: <br>
+        <textarea name="Plot" rows="10" cols="30" required></textarea><br>
+        <h3> Runtime(in minutes): <br>
+        <input type="number" name="Runtime" required><br>
+        <h3> Rated: <br>
+        <input type="radio" name="Rated" value="G"> G<br>
+        <input type="radio" name="Rated" value="PG"> PG<br>
+        <input type="radio" name="Rated" value="R"> R<br>
+
+        -let genreList = ['Action','Adventure','Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy', 'Film-Noir','History','Horror','Music','Musical','Mystery','News','Romance','Sci-Fi','Short','Sport','Thriller','War','Western']
+        <h3> Genres: <br>
+        ul#genres
+            each genre in genreList
+                li
+                    input(type="checkbox" name="Genre" value=genre)
+                    | #{genre}
+
+        <h3> Directors (Full names and sperated by commas): <br>
+        <input type="text" name="Director"><br>
+        <h3> Writers: (Full names and sperated by commas)<br>
+        <input type="text" name="Writer"><br>
+        <h3> Actors: (Full names and sperated by commas)<br>
+        <input type="text" name="Actors"><br>
+    
+        <br><input type="submit">
+        </form>

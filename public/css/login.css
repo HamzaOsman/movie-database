@@ -1,0 +1,12 @@
+/*Login page
+*/
+#loginDiv {
+    width: 250px;
+    text-align: center;
+    margin: auto;
+    background-color: rgb(204, 203, 203);
+}
+
+#loginDiv p {
+    color: black;
+}

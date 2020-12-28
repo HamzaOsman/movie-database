@@ -1,0 +1,50 @@
+html
+    head
+        title #{user.userName} | MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/userpage.css' rel='stylesheet')
+
+    body
+        include ../partials/topnav.pug
+
+        div#grid
+            div#profile-info
+                h1#username #{user.userName}
+                img#avatar(src=user.avatar)
+                if(session.loggedin)
+                    br
+                    br
+                    input(type="button" id="followButton" onclick=`followUser('${session.userName}')` value="Follow User") 
+                br
+            div#follow-list
+                h2 Follow List
+
+                each person in user.peopleFollowed
+                    a(href="/people/"+person) #{person}
+                    br
+                else
+                    p They are not following any people
+                br
+            div#user-follow-list
+                h2 Users Follow List
+
+                each u in user.usersFollowed
+                    a(href="/users/"+u) #{u}
+                    br
+                else
+                    p They are not following any users
+
+                br
+
+            div#user-reviews
+                h2 Reviews
+                each review in user.reviews
+                    h3(style="background-color: #163958;") 
+                        a(href="/movies/"+review.movieID) #{review.movieID} 
+                        | [#{review.score}/10]
+                    
+                    if review.type === "full"
+                        p Summary: #{review.summary}
+                        p Text: #{review.text}
+                else
+                    p The user has no reviews

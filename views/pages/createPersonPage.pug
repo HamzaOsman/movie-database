@@ -1,0 +1,14 @@
+html
+    head 
+        title Create a Person - MovieDB
+        link(href="/css/style.css" rel="stylesheet")
+        link(href="/css/createMoviePage.css" rel="stylesheet")
+
+    body
+        include ../partials/topnav
+
+        <form action="/people" method="post">
+        <h3> Person Name: <br>
+        <input type="text" name="name" required>
+        <input type="submit">
+        </form>

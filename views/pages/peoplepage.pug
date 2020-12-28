@@ -1,0 +1,30 @@
+html
+    head
+        title #{person.name} - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/actorpage.css' rel='stylesheet')
+    body
+        include ../partials/topnav
+
+        h1#actor-page-name #{person.name}
+        br
+        if session.loggedin
+            div#follow
+                input(type="button" id="followButton" onclick=`followPerson('${session.userName}')` value="Follow") 
+
+        div#filmography
+            h2 Filmography    
+            div#filmography-flexbox
+                each movie in filmographyList
+                    div(class="filmography-movie")
+                        a(href="/movies/"+movie.ID)
+                            img(src=movie.Poster)
+                            p #{movie.ID}
+                            br
+
+        div#freq-collab
+            h2 Frequent Collaborators
+            ul
+            each member in topCollabList
+                li
+                    a(href="/people/"+member) #{member}

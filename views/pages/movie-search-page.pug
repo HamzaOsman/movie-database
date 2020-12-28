@@ -1,0 +1,53 @@
+html
+    head
+        title Movie Seach Page - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href="/css/movie-search-page.css" rel="stylesheet")
+
+    body
+        include ../partials/topnav
+        - let genreList = ['Action','Adventure','Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy', 'Film-Noir','History','Horror','Music','Musical','Mystery','News','Romance','Sci-Fi','Short','Sport','Thriller','War','Western']
+
+        <form action="/movies" method="get">
+        h3 Title: 
+            input(type="textbox" id="title" name="title") 
+        h3 Release Year: 
+            input(type="number" id="year" name="year")
+        h3 Minimum Rating: 
+            input(type="number" id="minrating" name="minrating" min="0" max="10" step="0.5")
+        h3 Genres: 
+            ul#genres
+                each genre in genreList
+                    li
+                        input(type="checkbox" class="genreCheckbox" name="genre[]" value=genre)
+                        | #{genre}
+        br
+        <input type="hidden" name="page" value="0">
+        <input type="Submit">
+        </form>
+
+        hr
+        p 
+            | Cant find what you want? Click 
+            a(href="/createMovie") here
+            |  to create the movie you are looking for
+
+        div#searchResults
+        if searched
+            -let end = false;
+            h2 Search Results:
+            div#randomMovies(class="flex-container")
+                each movie in movies
+                    include ../partials/movie-block.pug
+                else 
+                    -end = true;
+                    p No results
+
+            br
+            if(!end)
+                button(onclick="changePage(`decrement`)" class="pageButton") Previous
+                button(onclick="changePage(`increment`)" class="pageButton" style="float:right;") Next
+        script(src='/js/script.js')
+
+
+

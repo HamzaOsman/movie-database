@@ -1,0 +1,21 @@
+nav#topNav
+  ul
+    li
+      a(href='/') MovieDB
+    if(session && session.loggedin) 
+      li(style='float:right')
+        a(href="" onclick="logout()") Logout
+      li(style='float:right')
+        a(href='/users/'+session.userName) Profile
+    else
+      li(style='float:right')
+        a(href='/login') Login
+    
+    li(style='float:right')
+      a(href='/users/') Browse Users
+    li(style='float:right')
+      a(href='/people/') Browse People
+    li(style='float:right')
+      a(href='/movies') Browse Movies
+
+    script(src='/js/script.js')

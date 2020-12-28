@@ -1,0 +1,20 @@
+* {
+    color: white;
+}
+
+button {
+    color: black
+}
+
+input {
+    color: black
+}
+
+#searchResults a:hover {
+    color: #7d81b1;
+    text-decoration: underline;
+}
+
+a {
+    font-size: large;
+}

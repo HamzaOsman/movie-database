@@ -1,0 +1,16 @@
+div(class="movie-div")
+    h2
+        a(href="movies/"+encodeURI(movie.ID)) #{movie.ID}
+    div(class="flex-container" class="movie-details")
+        img(src=movie.Poster)
+        p   Genre: 
+            -let counter = 0;
+            each genre in movie.Genre
+                if(counter > 0)
+                    |, 
+                |#{genre}
+                -counter++
+
+            <br>
+            <br>
+            | Plot: #{movie.Plot}

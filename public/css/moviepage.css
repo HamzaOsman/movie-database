@@ -1,0 +1,106 @@
+/*MOVIE PAGE CSS
+*/ 
+p, h2 {
+    padding: 0px 15px;
+}
+#grid {
+    margin: 0 100px;
+    display: grid;
+    grid-gap: 20px 20px;
+}
+
+#grid h1 {
+    background-color: #072333;
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+}
+
+#poster {
+    grid-column: 1 / 2;
+    justify-self: center;
+}
+
+#picture {
+    width: 300px;
+    height: 448px;
+}
+
+#movie-details {
+    grid-column: 2 / 10;
+    background-color: #394d5e;
+}
+
+#movie-details p {
+    font-size: larger;
+}
+
+#title {
+    text-align: center;
+    margin-top: 0;
+}
+
+#similar-movies {
+    grid-column: 1 / 10;
+    grid-row: 2 / 3;
+    background-color: #394d5e;
+}
+
+#similar-movies-flexbox {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#similar-movies-labels {
+    text-align: left;
+    align-self: flex-end;
+}
+#similar-movies img {
+    width:150px;
+    height:225px;
+}
+
+#staff {
+    grid-column: 1 / 10;
+    grid-row: 3 / 4;
+    background-color: #394d5e;
+
+}
+
+#grid a {
+    color: #ffffff;
+    text-decoration: underline;
+
+}
+#grid a:hover {
+    color: #111150;
+    text-decoration: underline;
+}
+
+#user-reviews {
+    grid-column: 1 / 10;
+    grid-row: 4 / 5;
+    background-color: #394d5e;
+
+}
+
+.user-rating {
+    display: inline;
+}
+
+.review-header {
+    background-color: #163958; 
+    color: rgb(150, 150, 150);
+    margin: 0px;
+}
+
+#new-review {
+    color: white;
+    margin: 0 15px;
+}
+
+#new-review h2 {
+    padding-left: 0;
+}

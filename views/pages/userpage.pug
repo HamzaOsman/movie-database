@@ -1,0 +1,97 @@
+html
+    head
+        title My account - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/userpage.css' rel='stylesheet')
+
+    body
+        include ../partials/topnav
+        include ../partials/user-search-form
+
+        br
+        br
+        br
+
+        div#grid
+            div#profile-info
+                h1#username #{user.userName}
+                img#avatar(src=user.avatar)
+                br
+                if user.contributingUser
+                    input(type='checkbox' id="contributionCheckbox" onchange=`changeContribution()` checked="checked")
+                else
+                    input(type='checkbox' id="contributionCheckbox" onchange=`changeContribution()`)
+                | Contributing User
+            div#bio
+                h2 Profile Description
+                p I am a movie lover
+            div#follow-list
+                h2 Follow List
+                button(onclick=`unfollowPerson('${session.userName}')` id="unfollowPersonButton") Unfollow
+                br
+
+                each person in user.peopleFollowed
+                    br
+                    input(type='radio' id=person name="person" value= person)
+                    a(href="/people/"+person) #{person}
+                else
+                    p You are not following any people
+
+                br
+                br
+
+            div#user-follow-list
+                h2 Users Follow List
+                button(onclick=`unfollowUser('${session.userName}')` id="unfollowUserButton") Unfollow
+                br
+
+                each u in user.usersFollowed
+                    br
+                    input(type='radio' name="user" value= u)
+                    a(href="/users/"+u) #{u}
+
+                else
+                    p You are not following any users
+                br
+                br
+
+            div#movie-recommendation
+                h2(style='text-align: center;') Movie Recommendations
+                div#movie-page-flex
+                    each movie in user.recommendedMovies
+                        div
+                            a(href="/movies/"+movies[movie].ID) 
+                                img(src=movies[movie].Poster)
+                                br
+                                br
+                                | #{movies[movie].ID}
+
+                    else
+                        p No movie recommendations
+        
+
+            div#personal-user-reviews
+                h2 Reviews
+                each review in user.reviews
+                    h3(style="background-color: #163958;") 
+                        a(href="/movies/"+review.movieID) #{review.movieID} 
+                        | [#{review.score}/10]
+                    
+                    if review.type === "full"
+                        p Summary: #{review.summary}
+                        p Text: #{review.text}
+                else
+                    p The user has no reviews
+
+            div#notifications
+                h2(style='text-align: center;') Notifications
+                each notification in user.notifications
+                    p #{notification}
+
+                else
+                    p No new notifications
+
+                button(onclick="clearNotifications()") Clear notifications 
+                <br><br>
+
+        script(src="/js/script.js")

@@ -1,0 +1,78 @@
+/*ACTOR PAGE CSS
+*/ 
+
+* {
+    color: white;
+}
+h1 {
+    margin-top: 70px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#freq-collab li {
+    padding-left: 20px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+#follow {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#filmography-flexbox p {
+    margin: 2px;
+}
+
+#filmography {
+    background-color: rgba(245, 245, 220, 0.082);
+    margin: 0 100px;
+}
+#filmography-flexbox {
+    overflow: auto;
+    display: flex;
+    justify-content: left;
+    text-align: center;
+}
+
+#filmography-labels {
+    text-align: left;
+    align-self: flex-end;
+}
+
+.filmography-movie {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+img {
+    width:150px;
+    height:225px;
+}
+
+#freq-collab {
+    background-color: rgba(245, 245, 220, 0.082);
+    margin: 0 100px;
+    padding-bottom: 10px; 
+}
+
+#freq-collab ul {
+    color: white;
+}
+
+input {
+    color: black;
+}
+

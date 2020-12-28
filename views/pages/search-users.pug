@@ -1,0 +1,25 @@
+html
+    head
+        title Search for a user - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/search-people.css' rel='stylesheet')
+
+    body
+        include ../partials/topnav
+        include ../partials/user-search-form
+
+        div#searchResults
+            if searched
+                -let end = false;
+                h3 Search Results:
+                each user in userList
+                    a(href="/users/"+user.userName) #{user.userName}
+                    br
+                else
+                    -end = true;
+                    | No results
+                
+                br
+                if(!end)
+                    button(onclick="changePage(`decrement`)" class="pageButton") Previous
+                    button(onclick="changePage(`increment`)" class="pageButton" style="float:right;") Next

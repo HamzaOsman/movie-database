@@ -1,0 +1,37 @@
+html
+    head
+        title Search for a person - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/search-people.css' rel='stylesheet')
+
+    body
+        include ../partials/topnav
+
+        <form action="/people" method="get">
+        h3 Person Name: 
+            <input type="text" name="name">
+        <input type="hidden" name="page" value="0">
+        <input type="submit" value="Submit">
+        </form>
+
+        <br><br>
+        hr
+        p 
+            | Cant find what you want? Click 
+            a(href="/createPerson") here
+            |  to create the person you are looking for
+
+        div#searchResults
+            if searched
+                -let end = false;
+                each person in peopleList
+                    a(href="/people/"+person.name) #{person.name}
+                    br
+                else
+                    -end = true;
+                    |No results
+
+                br
+                if(!end)
+                    button(onclick="changePage(`decrement`)" class="pageButton") Previous
+                    button(onclick="changePage(`increment`)" class="pageButton" style="float:right;") Next

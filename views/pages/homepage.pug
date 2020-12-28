@@ -1,0 +1,19 @@
+html
+    head
+        title Movie Database
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/homepage.css' rel='stylesheet')
+    
+    body
+        include ../partials/topnav
+
+        h1#title MovieDB
+        
+        h2 Random Movies
+        div#randomMovies(class="flex-container")
+            each movie in movieList
+                include ../partials/movie-block.pug
+
+
+
+        script(src='/js/script.js')

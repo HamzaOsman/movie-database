@@ -1,0 +1,22 @@
+html
+    head
+        title My account - MovieDB
+        link(href='/css/style.css' rel='stylesheet')
+        link(href='/css/login.css' rel='stylesheet')
+  
+    body
+        include ../partials/topnav
+        br
+
+        div#loginDiv
+            p Login/Signup
+            p
+                | Username: 
+                input#username
+            p
+                | Password: 
+                input#password(type='password')
+            button(onclick="login()") Login
+            button(onclick="signup()") Signup
+
+        script(src='/js/script.js')

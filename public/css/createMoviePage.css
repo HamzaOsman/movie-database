@@ -1,0 +1,18 @@
+* {
+    color: white;
+}
+
+input {
+    color: black;
+}
+
+textarea {
+    resize: none;
+    color: black;
+}
+
+#genres {
+    column-count: 6;
+    list-style-type: none;
+    font-size: large;
+}
